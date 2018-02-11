@@ -13,11 +13,11 @@ unsigned long previousMillis = 0;
 const long interval = 15000;          // interval at which to read sensor / Update values
 
 // Auth Token App via Mail of printscreen
-char auth[] = "1847ec45d79f4d4495d67d59101d3f77";
+char auth[] = "ADD CHAR AUTH HERE";
 
 void setup() {
   Serial.begin(115200);
-  Blynk.begin(auth, "G.E.C.K", "ewRiOrgRSqCE");
+  Blynk.begin(auth, "AP", "Password");
   dht.begin();}
 
 void gettemperature() {
