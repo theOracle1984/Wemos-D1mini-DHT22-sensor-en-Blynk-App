@@ -1,5 +1,3 @@
-// no Serial monitor printout !!!!!!
-
 #define BLYNK_PRINT Serial    // Comment this out to disable prints and save space
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
@@ -8,18 +6,18 @@
 #include <Phant.h>
 #include <DHT.h>
 #define DHTTYPE DHT22
-#define DHTPIN  D3      // pin D3
+#define DHTPIN  D4
 DHT dht(DHTPIN, DHTTYPE, D4);
 float humidity, temp;  // Values read from sensor
 unsigned long previousMillis = 0;
 const long interval = 15000;          // interval at which to read sensor / Update values
 
 // Auth Token App via Mail of printscreen
-char auth[] = "Char-Auth Here";
+char auth[] = "ADD CHAR AUTH HERE";
 
 void setup() {
   Serial.begin(115200);
-  Blynk.begin(auth, "AP", "APpass");
+  Blynk.begin(auth, "AP", "Password");
   dht.begin();}
 
 void gettemperature() {
@@ -33,6 +31,15 @@ void gettemperature() {
     // Sensor readings may also be up to 2 seconds 'old' (it's a very slow sensor)
     humidity = dht.readHumidity();          // Read humidity (percent)
     temp = dht.readTemperature(false);     // Read temperature as Fahrenheit
+
+
+    // Serial Monitor
+    Serial.print("Humidity ");
+    Serial.print(humidity);
+    Serial.println(" %\t");
+    Serial.print("Temperature: ");
+    Serial.print(temp);
+    Serial.println(" *C ");
 
     Blynk.virtualWrite(V0, temp);
     Blynk.virtualWrite(V1, humidity);
