@@ -6,7 +6,7 @@ Wemos D1mini (or Wavgat ripoff)
 DHT22
 Blynk App (Android or iOS)
 
-CHECK the DHTPIN !!!! ....temperature sensor = D3  ....temp_Serial = D4
+CHECK the DHTPIN !!!! 
 change: char auth[] "ADD CHAR AUTH HERE"  to yours
 change: AP and Password
 Baud: 115200
